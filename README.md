@@ -88,7 +88,7 @@ npx hardhat compile --network inco
 
 ### Deploy
 
-Deploy the ERC20 to the inco gentry testnet network:
+Deploy the ERC20 to the Inco Gentry testnet network:
 
 ```sh
 npx hardhat deploy --network inco
@@ -96,7 +96,7 @@ npx hardhat deploy --network inco
 
 #### Mint
 
-Run the `mint` task on the inco gentry testnet network:
+Run the `mint` task on the Inco Gentry testnet network:
 
 ```sh
 npx hardhat task mint --network inco
