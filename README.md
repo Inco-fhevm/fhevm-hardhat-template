@@ -66,8 +66,6 @@ You can edit the CI script in [.github/workflows/ci.yml](./.github/workflows/ci.
 
 ### Pre Requisites
 
-Install [docker](https://docs.docker.com/engine/install/)
-
 Install [pnpm](https://pnpm.io/installation)
 
 Before being able to run any command, you need to create a `.env` file and set a BIP-39 compatible mnemonic as an
@@ -80,102 +78,28 @@ Then, proceed with installing dependencies:
 pnpm install
 ```
 
-### Start fhevm
-
-Start a local fhevm docker container that inlcudes everything needed to deploy FHE encrypted smart contracts
-
-```sh
-# In one terminal, keep it opened
-# The node logs are printed
-pnpm fhevm:start
-```
-
-To stop:
-
-```sh
-pnpm fhevm:stop
-```
-
 ### Compile
 
 Compile the smart contracts with Hardhat:
 
 ```sh
-pnpm compile
+npx hardhat compile --network inco
 ```
-
-### TypeChain
-
-Compile the smart contracts and generate TypeChain bindings:
-
-```sh
-pnpm typechain
-```
-
-### List accounts
-
-From the mnemonic in .env file, list all the derived Ethereum adresses:
-
-```sh
-pnpm task:accounts
-```
-
-### Get some native coins
-
-In order to interact with the blockchain, one need some coins. This command will give coins to the first address derived
-from the mnemonic in .env file.
-
-```sh
-pnpm fhevm:faucet
-```
-
-<br />
-<details>
-  <summary>To get the first derived address from mnemonic</summary>
-<br />
-
-```sh
-pnpm task:getEthereumAddress
-```
-
-</details>
-<br />
 
 ### Deploy
 
-Deploy the ERC20 to local network:
+Deploy the ERC20 to the inco gentry testnet network:
 
 ```sh
-pnpm deploy:contracts
+npx hardhat deploy --network inco
 ```
-
-Notes: <br />
-
-<details>
-<summary>Error: cannot get the transaction for EncryptedERC20's previous deployment</summary>
-
-One can delete the local folder in deployments:
-
-```bash
-rm -r deployments/local/
-```
-
-</details>
-
-<details>
-<summary>Info: by default, the local network is used</summary>
-
-One can change the network, check [hardhat config file](./hardhat.config.ts).
-
-</details>
-<br />
 
 #### Mint
 
-Run the `mint` task on the local network:
+Run the `mint` task on the inco gentry testnet network:
 
 ```sh
-pnpm task:mint --network local --mint 1000 --account alice
+npx hardhat task mint --network inco
 ```
 
 ### Test
@@ -183,7 +107,7 @@ pnpm task:mint --network local --mint 1000 --account alice
 Run the tests with Hardhat:
 
 ```sh
-pnpm test
+npx hardhat test --network inco
 ```
 
 ### Lint Solidity
@@ -224,16 +148,6 @@ Delete the smart contract artifacts, the coverage reports and the Hardhat cache:
 
 ```sh
 pnpm clean
-```
-
-### Tasks
-
-#### Deploy EncryptedERC20
-
-Deploy a new instance of the EncryptedERC20 contract via a task:
-
-```sh
-pnpm task:deployERC20
 ```
 
 ## Tips
