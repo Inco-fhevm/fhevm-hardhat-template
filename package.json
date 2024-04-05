@@ -80,15 +80,7 @@
     "task:getEthereumAddress": "hardhat task:getEthereumAddress",
     "task:mint": "hardhat task:mint",
     "task:deployERC20": "hardhat task:deployERC20",
-    "task:accounts": "hardhat task:accounts",
-    "fhevm:start": "docker run -i -p 8545:8545 --rm --name fhevm docker.io/inconetwork/inco-chain:0.1.9.1-hardhat-template",
-    "fhevm:stop": "docker rm -f fhevm",
-    "fhevm:restart": "fhevm:stop && fhevm:start",
-    "fhevm:faucet": "npm run fhevm:faucet:alice && sleep 5 && npm run fhevm:faucet:bob && sleep 5 && npm run fhevm:faucet:carol && sleep 5 && npm run fhevm:faucet:dave",
-    "fhevm:faucet:alice": "docker exec -i fhevm go run /go/src/github.com/evmos/evmos/faucet.go $(npx hardhat task:getEthereumAddressAlice)",
-    "fhevm:faucet:bob": "docker exec -i fhevm go run /go/src/github.com/evmos/evmos/faucet.go $(npx hardhat task:getEthereumAddressBob)",
-    "fhevm:faucet:carol": "docker exec -i fhevm go run /go/src/github.com/evmos/evmos/faucet.go $(npx hardhat task:getEthereumAddressCarol)",
-    "fhevm:faucet:dave": "docker exec -i fhevm go run /go/src/github.com/evmos/evmos/faucet.go $(npx hardhat task:getEthereumAddressDave)"
+    "task:accounts": "hardhat task:accounts"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.2"
